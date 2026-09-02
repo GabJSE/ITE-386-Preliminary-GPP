@@ -1,2 +1,2 @@
 # ITE-386-Preliminary-GPP
-sample repo for ITE-386
+This is just a sample repo for our subject practices.
