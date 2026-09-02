@@ -1,0 +1,20 @@
+/* Specific styles for JobseekerNotification page — complements dashboard.css */
+
+.overview-header { margin: 0 0 12px 0; }
+
+.overview-content { display:flex; flex-wrap:wrap; gap:12px; }
+.overview-item { flex:1 1 220px; background:var(--wc-bg,#fff); padding:12px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.04); }
+.overview-item h3 { margin:0 0 8px 0; font-size:15px; }
+.overview-item p { margin:0 0 8px 0; color:var(--wc-muted,#6b7280); }
+.overview-item ul { margin:6px 0 0 12px; color:var(--wc-muted,#6b7280); }
+.overview-item .save-btn { margin-top:8px; }
+
+.notification-types { list-style:none; margin:12px 0 0 0; padding:0; display:flex; flex-direction:column; gap:10px; }
+.notification-item { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:12px; border-radius:8px; background:var(--wc-bg,#fff); border:1px solid rgba(12,32,55,0.04); }
+.notification-item.unread { box-shadow:0 6px 18px rgba(10,169,111,0.06); border:1px solid rgba(10,169,111,0.06); }
+.notif-desc { color:var(--wc-muted,#6b7280); margin-top:6px; font-size:13px; }
+.notif-actions button { min-width:84px; }
+
+.recent-activity { margin-top:12px; color:var(--wc-muted,#6b7280); font-size:13px; }
+
+@media (max-width:720px){ .overview-content { flex-direction:column; } }

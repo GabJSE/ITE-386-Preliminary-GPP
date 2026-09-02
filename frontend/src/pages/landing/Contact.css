@@ -1,0 +1,95 @@
+/* Contact.css */
+
+.contact-page {
+  display: flex;
+  justify-content: center;
+  padding: 6rem 2rem 2rem;
+  background-color: #f8f9fa;
+  min-height: 80vh;
+}
+
+.contact-container {
+  max-width: 700px;
+  width: 100%;
+  background-color: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.contact-container p {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Flex container for first and last name */
+.name-fields {
+  display: flex;
+  gap: 1rem; /* space between columns */
+  margin-bottom: 1rem;
+}
+
+.name-fields label {
+  flex: 1; /* equal width for both inputs */
+}
+
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-top: 0.25rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+.contact-form textarea {
+  height: 150px; /* Makes the textarea bigger */
+  resize: vertical; /* Users can still resize vertically */
+}
+
+.contact-form button {
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  background-color: #00796B;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #00594f;
+}
+
+.error {
+  color: #d9534f;
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+}

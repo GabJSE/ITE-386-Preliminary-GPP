@@ -1,0 +1,253 @@
+/* Document link button style to make it look like a hyperlink */
+.personal-docs .document-link-btn {
+  /* Reset button default styling */
+  background: none;
+  color: #0b5fff; /* Blue link color */
+  text-decoration: none; /* Already applied by personal-docs a, but safe to include */
+  font-weight: 600; /* Matching the existing link weight */
+  border: none;
+  padding: 0;
+  margin: 0;
+  /* Make it behave like a link */
+  cursor: pointer;
+  text-align: left;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.personal-docs .document-link-btn:hover {
+  text-decoration: underline; /* Standard link hover effect */
+}
+
+.employer-applicants-root { 
+	/* Typography foundation for the Applicants page */
+	font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+	font-size: 15px;
+	line-height: 1.45;
+	color: var(--wc-neutral, #1f2937);
+
+	display:flex; gap:20px; padding:20px 28px; width:100%; max-width: none; margin:0; box-sizing:border-box; align-items:stretch; /* make this fill the parent .page-content */
+	height: 100%;
+	min-height: 0;
+	flex: 1 1 auto;
+}
+.card { background: #fff; border:1px solid rgba(12,32,55,0.06); border-radius:8px; overflow:hidden; display:flex; flex-direction:column; box-shadow: 0 8px 24px rgba(12,32,55,0.06) }
+.card.job-posts { width:360px; flex: 0 0 360px }
+.card.applicants-panel { flex:1; display:flex; flex-direction:column; min-height:0 }
+.card-header { display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid rgba(12,32,55,0.04) }
+.card-header h3 { margin:0; font-size:18px; color:var(--wc-neutral); font-weight:700 }
+/* Header search styling */
+.card-header .search-box { display:flex; align-items:center }
+.card-header .search { height:36px; padding:8px 10px; border-radius:8px; border:1px solid rgba(55,71,79,0.06); background:var(--wc-bg); color:var(--wc-neutral); min-width:140px }
+.card-header .search:focus { outline:none; box-shadow:0 6px 18px rgba(10,169,111,0.06); border-color: rgba(10,169,111,0.14); }
+/* Ensure header action buttons align like other buttons across the app */
+.header-actions { display:flex; gap:8px; align-items:center }
+/* Style header buttons to match project button design */
+.header-actions .wc-btn,
+.header-actions .wc-btn-ghost {
+	padding: 10px 14px;
+	border-radius: 8px;
+	font-weight: 600;
+	height: 40px;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	transition: transform 140ms ease, box-shadow 160ms ease, background-color 120ms ease;
+}
+.header-actions .wc-btn {
+	background: var(--wc-primary);
+	color: #fff;
+	border: none;
+	box-shadow: 0 8px 24px rgba(12,32,55,0.06);
+}
+.header-actions .wc-btn:hover { transform: translateY(-2px); box-shadow: 0 18px 36px rgba(12,32,55,0.08); }
+.header-actions .wc-btn-ghost {
+	background: transparent;
+	border: 1px solid rgba(55,71,79,0.06);
+	color: var(--wc-neutral);
+}
+.header-actions .wc-btn-ghost:hover { background: rgba(77,182,172,0.04); }
+.card-body { padding:14px; flex:1; min-height:0; display:flex; flex-direction:column }
+.list-body { flex:1; overflow:auto; min-height:0 }
+.job-item { display:flex; gap:12px; padding:12px; border-radius:6px; align-items:center; cursor:pointer; border:1px solid transparent; transition: background .12s ease, border-color .12s ease }
+.job-item + .job-item { margin-top:10px }
+.job-item:hover { background: rgba(245,247,249,0.9) }
+.job-item.active { background: linear-gradient(90deg, rgba(77,182,172,0.06), rgba(77,182,172,0.02)); border-color: rgba(77,182,172,0.06) }
+.job-avatar { width:44px; height:44px; border-radius:50%; background:linear-gradient(180deg, rgba(77,182,172,0.12), rgba(77,182,172,0.08)); overflow:hidden; display:inline-block; flex:0 0 44px }
+.job-avatar img { width:100%; height:100%; object-fit:cover; display:block }
+.job-title { 
+	font-weight:700; 
+	color:var(--wc-neutral);
+	font-size:16px;
+	line-height:1.2;
+}
+.job-meta { color:var(--wc-muted); font-size:13px }
+/* small subtitle helper for card headers */
+.dashboard-sub, .card .subtitle { color: var(--wc-muted); font-size:13px; margin-top:6px; }
+
+.applicants-body { display:flex; flex-direction:column; gap:14px }
+.filters-row { display:flex; gap:12px; align-items:center }
+.filters-row .search { flex:1; padding:10px 12px; border:1px solid rgba(55,71,79,0.06); border-radius:8px; background:var(--wc-bg) }
+.tabs { display:flex; gap:8px }
+.tab { padding:6px 10px; border-radius:8px; border:1px solid rgba(55,71,79,0.06); background:transparent }
+.tab.active { background:rgba(77,182,172,0.08); border-color:transparent }
+
+.applicants-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:8px; align-content:start; height:100%; }
+.applicants-grid .app-card { display:flex; flex-direction:row; }
+.app-card .app-actions { display:flex; gap:8px; align-items:center; flex-wrap:nowrap; overflow-x:auto; }
+.app-card .app-actions .wc-btn {
+	padding: 8px 12px;
+	border-radius: 8px;
+	font-weight: 600;
+	height: 36px;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	transition: transform 140ms ease, box-shadow 160ms ease, background-color 120ms ease;
+	font-size: 14px;
+	font-family: inherit;
+}
+.app-card .app-actions .wc-btn.small { padding:6px 8px; height:32px; font-size:13px }
+/* ghost variant for small actions to match header buttons */
+.app-card .app-actions .wc-btn-ghost {
+	background: transparent;
+	border: 1px solid rgba(55,71,79,0.06);
+	color: var(--wc-neutral);
+}
+.app-card .app-actions .wc-btn-ghost:hover { background: rgba(77,182,172,0.04); }
+.app-card .status-badge { font-size:12px; padding:4px 8px; border-radius:999px; background:#eef2ff; color:#1e3a8a; margin-left:8px }
+.app-card .meta-row { display:flex; gap:8px; align-items:center }
+.app-card {
+	display: grid;
+	grid-template-columns: 56px 1fr 360px;
+	gap: 12px;
+	align-items: center;
+	padding: 12px 16px;
+	border: 1px solid rgba(12,32,55,0.04);
+	border-radius: 8px;
+	background: var(--wc-bg);
+	min-height: 80px;
+	grid-column: 1 / -1;
+	width: 100%;
+}
+.app-card .avatar { width:56px; height:56px; border-radius:8px; background:#eef7f6; display:flex; align-items:center; justify-content:center; font-weight:700; color:#64748b; font-size:18px }
+.app-card .app-card-body { display:flex; flex-direction:column; gap:6px }
+.app-name { font-weight:700; color:var(--wc-neutral); font-size:16px }
+.app-summary { color:var(--wc-muted); font-size:14px }
+.app-meta { color:var(--wc-muted); font-size:13px }
+.app-card-actions { display:flex; align-items:center; justify-content:flex-end; gap:8px; grid-column: 3; }
+
+/* make the actions area scroll horizontally if too long */
+.app-card .app-actions { overflow-x:auto; display:flex; gap:8px; align-items:center; padding-bottom:2px }
+
+/* pill button styles for applicant actions */
+.app-card .app-actions .wc-btn { border-radius: 999px; padding: 8px 14px; box-shadow: 0 6px 18px rgba(2,6,23,0.06); font-size:14px; font-family:inherit }
+.app-card .app-actions .btn-view { background: linear-gradient(180deg,#3b82f6,#2563eb); color: #fff; border: none }
+.app-card .app-actions .btn-view:hover { transform: translateY(-2px) }
+.app-card .app-actions .btn-message { background: linear-gradient(180deg,#8b5cf6,#7c3aed); color: #fff; border: none }
+.app-card .app-actions .btn-shortlist { background: linear-gradient(180deg,#34d399,#10b981); color: #fff; border: none }
+.app-card .app-actions .btn-reject { background: linear-gradient(180deg,#fb7185,#f43f5e); color: #fff; border: none }
+.app-card .app-actions .btn-hire { background: linear-gradient(180deg,#2dd4bf,#06b6d4); color: #fff; border: none }
+
+.status-badge { background: #10b981; color: white; padding:6px 10px; border-radius:999px; font-weight:600 }
+
+@media (max-width: 900px) {
+	.app-card { grid-template-columns: 48px 1fr; grid-template-rows: auto auto; gap:10px; padding:10px }
+	.app-card .app-card-body { grid-column: 2; }
+	.app-card-actions { grid-column: 2; justify-content: flex-start; margin-top: 6px }
+}
+
+.empty { color:var(--wc-muted); padding:20px; text-align:center }
+
+@media (max-width: 900px) {
+	.employer-applicants-root { flex-direction:column; padding:12px }
+	.card.job-posts { width:100%; flex: none }
+	.applicants-grid { grid-template-columns:1fr }
+}
+
+/* When the dashboard sidebar is collapsed, ensure the applicants content fills the page area */
+.dashboard-sidebar.collapsed ~ .page-content .employer-applicants-root,
+.dashboard-sidebar.collapsed + .page-content .employer-applicants-root {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Resume-style modal for applicant profile */
+.resume-modal { max-width: 980px; }
+.resume-modal .modal-header h3 { margin: 0; }
+.modal-error { padding: 12px; background: #fff4f4; color: #b91c1c; border-radius: 6px; margin: 8px 0; }
+.modal-loading { padding: 12px; }
+
+.resume-grid { display: grid; grid-template-columns: 240px 1fr; gap: 24px; align-items: start; }
+.resume-left { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+.resume-avatar { width: 140px; height: 140px; border-radius: 8px; background: #f1f5f9; overflow: hidden; display:flex; align-items:center; justify-content:center }
+.resume-avatar img { width: 100%; height: 100%; object-fit: cover; display:block }
+.avatar-initials { font-size: 36px; color: #64748b; font-weight: 700 }
+.resume-name { font-weight: 800; font-size: 18px; color: var(--wc-neutral); text-align: center }
+.resume-role { color: #6b7280; font-size: 13px; text-align: center }
+.resume-contact { width: 100%; font-size: 13px; color: #475569; text-align: center }
+.resume-contact .contact-line { margin-bottom: 6px }
+.resume-links { display:flex; gap:8px; flex-direction:column; align-items:center }
+.resume-links a { color: #0b5fff; text-decoration: none; font-weight: 600 }
+.view-resume { background: #eef2ff; padding: 8px 12px; border-radius: 8px }
+
+/* Personal details block inside the left resume column */
+.resume-personal {
+	width: 100%;
+	margin-top: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	align-items: flex-start; /* left-align content within the left column */
+	text-align: left;
+	font-size: 13px;
+	color: #475569;
+}
+.resume-personal .personal-line {
+	width: 100%;
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+.resume-personal .personal-line strong {
+	display: inline-block;
+	width: 110px; /* label column width */
+	color: #111827;
+	font-weight: 700;
+}
+.personal-docs { width: 100%; margin-top: 6px }
+.personal-docs strong { display:block; margin-bottom:6px; color:#111827 }
+.personal-docs ul { list-style: none; padding-left: 0; margin: 0; }
+.personal-docs li { margin-bottom: 6px; }
+.personal-docs a { color: #0b5fff; text-decoration: none; font-weight: 600 }
+
+/* small visual tweak for certification items */
+.cert-item { margin-bottom: 6px; color: #475569 }
+
+@media (max-width: 860px) {
+	/* when left column stacks on small screens, ensure personal block flows naturally */
+	.resume-personal { align-items: flex-start; text-align: left }
+}
+
+.resume-main { display:flex; flex-direction:column; gap:18px }
+.resume-section .section-title { font-size: 14px; color: #111827; margin-bottom: 8px; font-weight:700 }
+.resume-section + .resume-section {
+	border-top: 1px solid rgba(12,32,55,0.06);
+	padding-top: 14px;
+	margin-top: 12px;
+}
+.resume-section .section-body { color: #475569; line-height:1.6 }
+.exp-item, .edu-item { margin-bottom: 12px }
+.exp-head { display:flex; gap:8px; align-items:center; flex-wrap:wrap }
+.exp-role { font-weight:700 }
+.exp-company { color:#6b7280; font-size:13px }
+.exp-duration, .edu-duration { color:#64748b; font-size:13px; margin-bottom:6px }
+.exp-desc, .edu-desc { margin-top:6px }
+
+@media (max-width: 860px) {
+	.resume-grid { grid-template-columns: 1fr; }
+	.resume-left { flex-direction: row; gap: 12px; align-items: center }
+	.resume-contact { text-align: left }
+	.resume-links { flex-direction: row }
+}
+

@@ -1,0 +1,65 @@
+.slideshow-wrapper {
+  overflow: hidden;
+  width: 100%;
+  max-width: 780px;
+  margin: 18px auto 24px auto;
+}
+.slideshow-track {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  /* start translateX at 0 and move left across full width of duplicated slides */
+  animation-name: slide-rtl;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.slide {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 760px;
+}
+.slide-content {
+  background: linear-gradient(90deg, #eaf9ef 0%, #ffffff 100%);
+  border-radius: 10px;
+  padding: 18px 20px;
+  color: #083a2a;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(10,30,20,0.06);
+}
+
+/* keyframes: move track left by 50% (since slides duplicated) so repeating loop looks continuous */
+@keyframes slide-rtl {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 880px) {
+  .slideshow-wrapper { max-width: 92%; }
+  .slide-content { padding: 14px 16px; font-size: 15px; }
+}
+
+/* image slide specific styles */
+.slide-image {
+  padding: 0;
+  overflow: hidden;
+}
+.slide-image img {
+  display: block;
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.slide-caption {
+  margin-top: 8px;
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 8px;
+  color: #083a2a;
+  font-weight: 600;
+}
+
+@media (max-width: 520px) {
+  .slide-image img { height: 140px; }
+  .slide-caption { font-size: 14px; padding: 8px 10px; }
+}

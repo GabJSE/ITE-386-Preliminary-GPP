@@ -1,0 +1,319 @@
+/* --- Base Page Styles --- */
+.page-header { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  gap: 12px; 
+  margin-bottom: 16px; /* Increased spacing */
+}
+.page-title { 
+  margin: 0; 
+  font-size: 24px; /* Larger title */
+  font-weight: 600;
+  color: #111827; /* Darker text */
+}
+.muted { 
+  color: #6b7280; 
+  font-size: 14px;
+}
+
+/* --- Card & Table --- */
+.card {
+  /* Using 'card' from UserManagement for consistency */
+  background: var(--card-bg, #fff); 
+  border-radius: 10px; 
+  padding: 16px; 
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+  overflow-x: auto; /* Allow horizontal scroll on small screens */
+}
+.card.empty { 
+  padding: 24px; 
+  text-align: center;
+  color: #6b7280;
+}
+
+.job-table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  white-space: nowrap; /* Prevents text wrap */
+}
+.job-table thead tr { 
+  border-bottom: 1px solid #e5e7eb; /* Lighter border */
+}
+.job-table th { 
+  text-align: left; 
+  padding: 12px 16px; /* More padding */
+  font-size: 13px; /* Smaller header */
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.job-table td { 
+  padding: 16px; /* More padding */
+  font-size: 14px;
+  color: #374151;
+}
+.job-row { 
+  border-bottom: 1px solid #f3f4f6; /* Lighter row border */
+  cursor: default; /* Remove pointer */
+  transition: background-color 150ms ease-in-out;
+}
+.job-row:last-child {
+  border-bottom: none;
+}
+.job-row:hover { 
+  background: #f9fafb; /* Lighter hover */
+}
+
+@media (max-width: 720px) {
+	.job-table th, .job-table td { 
+    padding: 12px; 
+    font-size: 14px; 
+  }
+}
+
+/* --- Action buttons --- */
+.job-actions { 
+  display: flex; 
+  gap: 8px; 
+  align-items: center; 
+}
+/* Re-using .btn styles from UserManagement for consistency */
+.job-actions .btn { 
+  padding: 8px 12px; 
+  border-radius: 8px; 
+  border: none; 
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 150ms ease-in-out;
+  background: #fff;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+.job-actions .btn:hover {
+  background: #f9fafb;
+}
+/* Specific button colors */
+.job-actions .btn-secondary {
+  /* Blue button */
+  background: var(--brand-600, #1f6feb); 
+  color: white;
+  border-color: transparent;
+}
+.job-actions .btn-secondary:hover {
+  background: var(--brand-700, #1a5bb9);
+}
+.job-actions .btn-danger { 
+  background: #ef4444; 
+  color: white;
+  border-color: transparent;
+}
+.job-actions .btn-danger:hover { 
+  background: #dc2626;
+}
+
+
+/* --- Job View Modal --- */
+.job-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+  padding: 20px;
+}
+.job-modal {
+  width: 800px;
+  max-width: 100%;
+  max-height: 90vh;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.2);
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.job-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.job-modal-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+.job-modal-close {
+  background: none;
+  border: none;
+  font-size: 28px;
+  font-weight: 300;
+  cursor: pointer;
+  color: #6b7280;
+  line-height: 1;
+  padding: 0;
+}
+.job-modal-close:hover {
+  color: #111827;
+}
+
+.job-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+}
+.job-modal-body p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: #374151; /* Default p color */
+}
+.job-modal-body p strong {
+  color: #111827; /* Darker strong text */
+  font-weight: 600;
+  margin-right: 8px;
+  width: 130px; /* Align text */
+  display: inline-block;
+}
+.job-modal-body hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 20px 0; /* More spacing */
+}
+
+.job-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #374151;
+}
+.job-description ul,
+.job-description ol {
+  padding-left: 20px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.job-description li {
+  margin-bottom: 8px;
+}
+
+.job-modal-footer {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px 24px;
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Re-use button styles */
+.job-modal-footer .btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  background: #fff;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+.job-modal-footer .btn:hover {
+  background: #f8f8f8;
+}
+
+/* --- New Modal Body Styles --- */
+.job-modal-body h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin-top: 16px;
+  margin-bottom: 12px;
+  padding-bottom: 4px; /* Underline spacing */
+  border-bottom: 1px solid #e5e7eb;
+}
+.job-modal-body h4:first-of-type {
+  margin-top: 0;
+}
+
+.job-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  gap: 4px 16px; /* Row and column gap */
+}
+/* Make <p> tags in grid have less bottom margin */
+.job-modal-grid p {
+  margin-bottom: 4px;
+}
+
+@media (max-width: 600px) {
+  .job-modal-grid {
+    grid-template-columns: 1fr; /* 1 column on small screens */
+  }
+  .job-modal-body p strong {
+    width: auto; /* Let strong tag be auto-width */
+  }
+}
+
+.job-modal-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.job-skill-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #eef2f7;
+  color: #374151;
+  border-radius: 999px;
+}
+
+/* ... all your existing styles ... */
+
+/* --- Delete Confirmation Modal --- */
+.job-modal-delete {
+  width: 450px; /* Smaller width for confirmation */
+  max-width: 95%;
+}
+
+.job-modal-delete .job-modal-body p {
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.job-delete-title {
+  font-weight: 600;
+  color: #111827;
+  background-color: #f9fafb;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px !important; /* Override p tag style */
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+.job-delete-error {
+  color: #dc2626;
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+/* Make delete button in footer prominent */
+.job-modal-delete .job-modal-footer .btn-danger {
+  background: #ef4444; 
+  color: white;
+  border-color: transparent;
+}
+.job-modal-delete .job-modal-footer .btn-danger:hover { 
+  background: #dc2626;
+}

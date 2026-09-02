@@ -1,0 +1,54 @@
+
+/* Applications page styles — align with dashboard design tokens */
+.applications-root { font-family: var(--wc-font, Arial, Helvetica, sans-serif); color: var(--wc-text, #222); }
+.applications-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 18px; }
+.applications-title { margin: 0; font-size: 28px; color: var(--wc-heading, #111); }
+.applications-sub { margin: 6px 0 0 0; color: var(--wc-muted, #666); }
+
+.applications-actions { display: flex; align-items: center; gap: 10px; }
+.sort-label { font-size: 13px; color: var(--wc-muted, #666); margin-right: 6px; }
+.wc-select { padding: 8px 10px; border-radius: 6px; border: 1px solid #e6eef0; background: #fff; }
+.status-pills { display: flex; gap: 8px; align-items: center; }
+.pill { padding: 8px 10px; border-radius: 6px; font-size: 13px; }
+.chop-badge {
+  background: #f3f7f6;
+  color: #0369a1;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+
+.applications-table-wrap { background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 12px; box-shadow: 0 6px 20px rgba(12,32,55,0.06); }
+.applications-list { display: flex; flex-direction: column; gap: 12px; }
+.application-card { display: grid; grid-template-columns: 72px 1fr 160px 180px; gap: 16px; align-items: center; background: #fff; border-radius: 8px; padding: 14px; border: 1px solid #f3f3f3; box-shadow: 0 6px 18px rgba(12,32,55,0.04); }
+.app-left { display:flex; align-items:center; }
+.app-avatar { width: 64px; height: 64px; border-radius: 8px; overflow: hidden; background: #f3f7f6; display:flex; align-items:center; justify-content:center; }
+.app-avatar img { width:100%; height:100%; object-fit:cover; display:block; }
+.avatar-fallback { width:48px; height:48px; border-radius:6px; background:#eef2f7; display:flex; align-items:center; justify-content:center; color:#64748b; font-weight:700; }
+.app-main { display:flex; flex-direction:column; }
+.app-title { font-weight:700; font-size:16px; color:var(--wc-heading,#0b1220); }
+.app-company { font-size:13px; color:var(--wc-muted,#64748b); margin-top:6px; }
+.app-meta { display:flex; flex-direction:column; align-items:flex-start; gap:8px; }
+.app-date { font-size:13px; color:var(--wc-muted,#94a3b8); }
+.status-pill { padding:6px 10px; border-radius:999px; font-weight:700; font-size:13px; }
+.status-pill.pending { background:#fff7ed; color:#b45309; }
+.status-pill.interview { background:#ecfdf5; color:#059669; }
+.status-pill.shortlisted { background:#eff6ff; color:#075985; }
+.status-pill.rejected { background:#fff1f2; color:#c0262e; }
+.app-actions { display:flex; gap:8px; justify-content:flex-end; }
+.wc-btn.small { padding:6px 10px; font-size:13px; height:36px; }
+.mono { font-family: monospace; color: #666; }
+
+.applications-empty { margin-top: 24px; }
+.empty-card { display: flex; gap: 16px; align-items: center; background: #fff; border: 1px solid #eee; padding: 18px; border-radius: 8px; box-shadow: 0 6px 30px rgba(12,32,55,0.06); }
+.empty-illustration { width: 86px; height: 86px; background: linear-gradient(135deg, #f3f7f6, #eef7ff); border-radius: 8px; box-shadow: inset 0 -6px 14px rgba(0,0,0,0.03); }
+.empty-text { color: #444; font-size: 15px; margin: 0; }
+
+@media (max-width: 900px) {
+  .applications-header { flex-direction: column; align-items: flex-start; }
+  .applications-actions { width: 100%; justify-content: flex-start; flex-wrap: wrap; }
+  .application-card { grid-template-columns: 56px 1fr 120px 140px; padding: 12px; }
+}

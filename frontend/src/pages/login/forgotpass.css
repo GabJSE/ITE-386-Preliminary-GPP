@@ -1,0 +1,30 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+*{box-sizing:border-box;font-family:"Poppins",sans-serif}
+body{background:#f6fbf9}
+
+.forgot-page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px}
+.forgot-card{width:100%;/* allow parent .login-center to control max width */background:#fff;border-radius:12px;box-shadow:0 8px 30px rgba(18,72,52,0.06);padding:28px;}
+.forgot-card h2{margin:0 0 12px;font-size:20px}
+
+.forgot-card label{display:block;font-size:13px;color:var(--wc-neutral);margin-bottom:8px}
+.forgot-card input[type="email"],.forgot-card input[type="password"],.forgot-card input{width:100%;padding:10px 12px;border-radius:8px;border:1px solid #e0ede7;font-size:14px;margin-bottom:12px}
+.forgot-card input:focus{outline:none;box-shadow:0 0 0 4px rgba(0,121,107,0.08);border-color:var(--wc-primary)}
+
+.forgot-card button{display:inline-block;padding:10px 14px;border-radius:10px;border:none;background:var(--wc-primary);color:#fff;font-weight:700;cursor:pointer}
+.forgot-card button[disabled]{opacity:0.7;cursor:not-allowed}
+
+.forgot-card .error-box{background:#fff6f6;border:1px solid #ffd9d9;color:#8a2e2e;padding:10px 12px;border-radius:8px;margin-bottom:12px}
+.forgot-card .info-box{background:#f6fffa;border:1px solid #dff5ea;color:#0a7d52;padding:10px 12px;border-radius:8px;margin-bottom:12px}
+
+.forgot-card form{margin-top:6px}
+
+/* small screens: full width card padding */
+@media (max-width:520px){
+	.forgot-card{padding:20px;border-radius:10px}
+}
+
+/* When using the 'modern' layout (we render .forgot-page.modern), match the centered behavior */
+.forgot-page.modern{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px}
+

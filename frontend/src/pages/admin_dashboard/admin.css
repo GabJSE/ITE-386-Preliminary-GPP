@@ -1,0 +1,168 @@
+/* Shared admin dashboard styles that align with the app's dashboard look */
+.admin-layout {
+  font-family: 'Segoe UI', system-ui, -apple-system, 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+  background-color: #f4f6f8;
+}
+
+.admin-sidebar {
+  /* Sidebar base that mirrors dashboard sidebar used elsewhere */
+  width: 240px;
+  padding: 20px;
+  border-right: 1px solid rgba(55,71,79,0.04);
+  background: var(--wc-bg);
+  color: var(--wc-neutral);
+  box-sizing: border-box;
+  position: relative;
+  transition: width .3s ease, padding .18s ease;
+  z-index: 200;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100vh;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 24px;
+}
+
+.admin-header {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #333;
+}
+.card {
+  background: var(--wc-bg, #fff);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(12,32,55,0.06);
+  padding: 16px;
+  border: 1px solid rgba(12,32,55,0.04);
+}
+
+/* Nav item visuals aligned with site style (mirror .sidebar-link) */
+.admin-nav {
+  width: 100%;
+}
+.admin-nav .nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  color: var(--wc-neutral);
+  text-decoration: none;
+  font-weight: 600;
+  min-height: 44px;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  transition: background-color 0.18s ease, color 0.18s ease, transform 160ms ease;
+}
+.admin-nav .nav-item:hover {
+  background: rgba(11,107,74,0.04);
+  color: var(--wc-primary);
+  transform: translateY(-1px);
+}
+.admin-nav .nav-item svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 28px; /* keep spacing consistent with other sidebars */
+}
+
+/* Sidebar header (logo + title) */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.wc-sidebar-logo {
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+}
+.sidebar-title {
+  margin: 0;
+  font-size: 15px;
+  color: var(--wc-neutral);
+}
+.sidebar-role {
+  font-size: 11px;
+  color: var(--wc-muted);
+}
+
+/* Toggle button (positioned similar to other dashboards) */
+.sidebar-toggle {
+  position: absolute;
+  right: -11px;
+  top: 30px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: none;
+  background: var(--wc-primary);
+  color: #fff; /* ensure icon inside is white */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+}
+.sidebar-toggle svg { display: block; }
+.sidebar-toggle svg path,
+.sidebar-toggle svg circle,
+.sidebar-toggle svg rect { fill: currentColor !important; stroke: currentColor !important; }
+.sidebar-toggle:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(12,32,55,0.08); }
+.sidebar-toggle:focus { outline: none; box-shadow: 0 0 0 4px rgba(11,107,74,0.08); }
+
+/* Label inside nav items */
+.admin-nav .nav-item .label {
+  display: inline-block;
+  transition: opacity .18s ease, transform .18s ease;
+  opacity: 1;
+  transform: translateX(0);
+  font-size: 13px;
+}
+.admin-sidebar.collapsed .nav-item .label { display: none; }
+
+.logout-btn {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.logout-label { font-size: 13px; color: var(--wc-neutral); }
+.logout-btn .logout-icon { display: inline-flex; align-items: center; justify-content: center; }
+.logout-btn:hover { background-color: rgba(11,107,74,0.04); color: var(--wc-primary); }
+.admin-sidebar.collapsed .logout-label { display: none; }
+.admin-sidebar.collapsed .logout-btn { justify-content: center; }
+
+/* Active state for current route */
+.admin-nav .nav-item.active {
+  background: linear-gradient(90deg, rgba(11,107,74,0.08), rgba(11,107,74,0.04));
+  box-shadow: inset 3px 0 0 0 var(--wc-primary);
+  color: var(--wc-primary);
+  border-left: 4px solid var(--wc-primary);
+}
+.admin-nav .nav-item.active svg,
+.admin-nav .nav-item.active path { fill: var(--wc-primary) !important; }
+
+/* Collapsed styles (AdminLayout controls width via inline styles) */
+.admin-sidebar.collapsed {
+  width: 72px !important;
+  padding: 12px;
+}
+.admin-sidebar.collapsed .nav-item { justify-content: center; gap: 0; padding: 10px; }
+.admin-sidebar.collapsed .nav-item svg { margin: 0 auto; }
+
+/* make content areas consistent with other pages */
+.admin-page { padding: 20px 24px; min-height: 100vh; }
+
+/* Responsive: collapse sidebar spacing on small screens */
+@media (max-width: 900px) {
+  .admin-sidebar { display: none; }
+}

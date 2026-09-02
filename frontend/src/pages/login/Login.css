@@ -1,0 +1,313 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+        /* Global Reset */
+        * {
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* Body and Background */
+        body {
+            margin: 0;
+            background: #f6fbf9;
+        }
+
+        /* Centered Modern Layout Container */
+        .login-page.modern {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 28px;
+        }
+
+        .login-center {
+            width: 100%;
+            max-width: 980px;
+        }
+
+        /* Main Card Structure */
+        .login-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(18, 72, 52, 0.08);
+            overflow: hidden;
+            display: flex;
+        }
+
+        /* Left Panel (Header/Branding) */
+        .login-card-header {
+            padding: 28px 36px;
+            border-right: 1px solid #f3f7f5;
+            width: 360px;
+            background: linear-gradient(180deg, #f9fffb, #ffffff);
+            flex-shrink: 0; /* Prevents shrinking on larger screens */
+        }
+
+        /* Brand Styling */
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .brand-logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: var(--wc-primary); /* Primary */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .brand-name {
+            font-weight: 700;
+            color: var(--wc-neutral);
+        }
+
+        .login-card-header h2 {
+            margin: 8px 0 6px;
+            font-size: 20px;
+        }
+
+        .login-sub {
+            color: rgba(55,71,79,0.72); /* fallback near --wc-neutral */
+            font-size: 13px;
+            margin: 0;
+        }
+
+        /* Right Panel (Form Body) */
+        .login-card-body {
+            padding: 28px 36px;
+            flex: 1;
+        }
+
+        /* Social Button */
+        .social-btn {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(77,182,172,0.12); /* subtle secondary */
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--wc-neutral);
+            transition: background-color 0.2s;
+        }
+        .social-btn:hover {
+            background-color: #f9fffb;
+        }
+
+        .social-btn.google {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* Divider ("OR" line) */
+        .divider {
+            text-align: center;
+            margin: 16px 0;
+            position: relative;
+        }
+
+        .divider span {
+            background: #fff;
+            padding: 0 10px;
+            color: rgba(77,182,172,0.6);
+            position: relative;
+            z-index: 1; /* Ensure text is above the line */
+        }
+
+        
+
+        /* Form Group/Input Styling */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .form-group label {
+            font-size: 13px;
+            color: var(--wc-neutral);
+        }
+
+        .wc-input {
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid #e0ede7;
+            font-size: 14px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .wc-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(0, 121, 107, 0.08); /* subtle primary glow */
+            border-color: var(--wc-primary);
+        }
+
+        .wc-input.error {
+            border-color: #e36464;
+            box-shadow: 0 0 0 4px rgba(227, 100, 100, 0.06);
+        }
+
+        /* Error Message Box */
+        .error-box {
+            background: #fff6f6;
+            border: 1px solid #ffd9d9;
+            color: #8a2e2e;
+            padding: 10px 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Info / success message box (used on reset flows) */
+        .info-box {
+            background: #f6fffa;
+            border: 1px solid #dff5ea;
+            color: #0a7d52;
+            padding: 10px 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Form Actions (Remember Me / Forgot Password) */
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            flex-wrap: wrap-reverse; /* Put remember me first on wrap */
+        }
+
+        .form-actions .forgot-link {
+            order: 0;
+            margin-right: auto; /* push this item to the far left */
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(55,71,79,0.6);
+            font-size: 13px;
+            order: 1;
+        }
+
+        .forgot-link {
+            color: var(--wc-primary);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.2s;
+            text-align: left;
+        }
+        .forgot-link:hover {
+            color: color-mix(in srgb, var(--wc-primary) 80%, black 20%);
+        }
+
+        /* Sign-in Button */
+        .signin-btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            background: var(--wc-primary);
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .signin-btn:hover:not([disabled]) {
+            background: color-mix(in srgb, var(--wc-primary) 80%, black 20%);
+        }
+
+        .signin-btn[disabled] {
+            opacity: 0.7;
+            cursor: not-allowed;
+            background: var(--wc-primary);
+        }
+
+        /* Sign-up CTA */
+        .signup-cta {
+            margin-top: 14px;
+            color: rgba(55,71,79,0.64);
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .join-link {
+            color: var(--wc-primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .join-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Breakpoint */
+        @media (max-width: 880px) {
+            .login-card {
+                flex-direction: column;
+            }
+
+            .login-card-header {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #f3f7f5;
+            }
+        }
+
+/* eye toggle (show/hide password) - matching signup styles */
+.eye-toggle-label {
+    font-size: 18px;
+    color: #666;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s;
+    background: transparent;
+    border: none;
+    padding: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.eye-toggle-label:hover { color: #00c37a; }
+
+.input-with-icon { position: relative; display: block; width: 100%; }
+.input-with-icon .wc-input { display: block; width: 100%; box-sizing: border-box; padding-right: 54px; position: relative; z-index: 1; background-clip: padding-box; }
+.input-with-icon .eye-toggle-label {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent; /* transparent inside field */
+    border: none;
+    border-radius: 6px;
+    z-index: 3; /* above input */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+}
+.input-with-icon .eye-toggle-label svg { width: 18px; height: 18px; }
+
+/* Remove default focus outline when clicking with mouse, keep visible focus for keyboard users */
+.input-with-icon .eye-toggle-label:focus { outline: none; }
+.input-with-icon .eye-toggle-label:focus-visible { outline: 2px solid rgba(11,107,74,0.12); border-radius: 6px; }

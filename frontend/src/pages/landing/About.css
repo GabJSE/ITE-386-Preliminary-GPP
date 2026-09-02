@@ -1,0 +1,86 @@
+.about-page {
+  min-height: 100vh;
+  padding: 6rem 2rem 2rem;
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 2rem 3rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.about-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.about-container p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.team-section h1,
+.mission-section h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.team-cards {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.team-card {
+  background-color: #e0f2f1;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 180px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.team-card .avatar {
+  width: 60px;
+  height: 60px;
+  background-color: #00796B;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 0.5rem auto;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.team-card h3 {
+  margin: 0.5rem 0 0.25rem 0;
+}
+
+.team-card p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.vision-section p {
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.mission-section p {
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5;
+}

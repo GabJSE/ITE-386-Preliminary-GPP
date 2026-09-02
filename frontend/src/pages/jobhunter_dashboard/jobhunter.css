@@ -1,0 +1,311 @@
+/* Styles for Jobhunter Dashboard sidebar and layout */
+.dashboard-root {
+	display: flex;
+	min-height: 100vh;
+}
+
+/* SIDEBAR BASE */
+.dashboard-sidebar {
+width: 230px;
+padding: 20px;
+border-right: 1px solid rgba(55,71,79,0.04);
+background: var(--wc-bg);
+box-sizing: border-box;
+position: relative;
+transition: width .3s ease, padding .18s ease;
+z-index: 200;
+overflow: visible;
+}
+.dashboard-sidebar h2 {
+margin: 0;
+font-size: 18px;
+}
+
+/* LINKS */
+.sidebar-link {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 10px 12px;
+border-radius: 8px;
+	font-size: 13px;
+	color: var(--wc-neutral);
+text-decoration: none;
+font-weight: 600;
+min-height: 44px;
+box-sizing: border-box;
+width: 100%;
+position: relative;
+z-index: 1;
+transition: background-color 0.18s ease, color 0.18s ease, transform 160ms ease;
+}
+.sidebar-link:hover {
+background: rgba(77,182,172,0.04);
+color: var(--wc-primary);
+transform: translateY(-1px);
+}
+.sidebar-link .icon {
+width: 28px;
+height: 100%;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+flex: 0 0 28px;
+}
+.sidebar-link .label {
+display: inline-block;
+transition: opacity .18s ease, transform .18s ease;
+opacity: 1;
+transform: translateX(0);
+ font-size: 13px;
+}
+
+/* Active state for current route */
+.sidebar-link.active {
+	background: linear-gradient(90deg, rgba(77,182,172,0.08), rgba(77,182,172,0.04));
+	box-shadow: inset 3px 0 0 0 var(--wc-primary);
+	color: var(--wc-primary);
+}
+.sidebar-link.active .icon svg,
+.sidebar-link.active .icon path {
+	fill: var(--wc-primary) !important;
+}
+
+/* Ensure hover still works when collapsed */
+.dashboard-sidebar.collapsed .sidebar-link:hover {
+background: #f3faf7;
+color: #1cd491;
+}
+
+/* SIDEBAR HEADER */
+.sidebar-header {
+display: flex;
+align-items: center;
+}
+.wc-sidebar-logo {
+width: 36px;
+height: 36px;
+display: inline-block;
+}
+.sidebar-title {
+margin: 0;
+font-size: 15px;
+color: var(--wc-neutral);
+}
+.sidebar-role {
+font-size: 11px;
+color: var(--wc-muted);
+}
+
+/* TOGGLE */
+.dashboard-sidebar .sidebar-toggle svg {
+transition: transform .18s ease;
+}
+dashboard-sidebar.collapsed .sidebar-toggle svg {
+transform: rotate(180deg);
+}
+
+/* Desktop: keep sidebar fixed and make main content scroll inside the page area */
+:root {
+	--wc-footer-height: 64px; /* used to reserve space for the global footer */
+}
+
+@media (min-width: 901px) {
+	/* Reserve the footer height so the Footer component rendered in App.js sits below
+		 the dashboard root and doesn't overlap the sidebar or main content. */
+	.dashboard-root {
+		height: calc(100vh - var(--wc-footer-height));
+		overflow: hidden; /* prevent body scroll */
+	}
+
+	.dashboard-sidebar {
+		height: 100%;
+		position: relative; /* positioned ancestor for absolute logout */
+		overflow: visible; /* do not scroll the sidebar itself */
+	}
+
+	.page-content {
+		flex: 1;
+		height: 100%;
+		overflow: auto; /* scroll the main content only */
+		-webkit-overflow-scrolling: touch;
+		background: #f8fbfc;
+	}
+}
+.sidebar-toggle {
+position: absolute;
+right: -11px;
+top: 30px;
+width: 25px;
+height: 25px;
+border-radius: 50%;
+border: none;
+background: var(--wc-primary);
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 5;
+}
+.sidebar-toggle svg {
+display: block;
+}
+.sidebar-toggle:hover {
+transform: translateY(-1px);
+box-shadow: 0 8px 20px rgba(12,32,55,0.08);
+}
+.sidebar-toggle:focus {
+outline: none;
+box-shadow: 0 0 0 4px rgba(11,107,74,0.08);
+}
+
+/* COLLAPSED SIDEBAR */
+.dashboard-sidebar.collapsed {
+width: 72px;
+padding: 12px;
+}
+.dashboard-sidebar.collapsed nav,
+.dashboard-sidebar.collapsed ul {
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+gap: 6px;
+}
+.dashboard-sidebar.collapsed .sidebar-link {
+justify-content: center;
+align-items: center;
+gap: 0;
+padding: 10px;
+width: 100%;
+}
+.dashboard-sidebar.collapsed .sidebar-link .icon {
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 auto;
+width: 28px;
+height: 28px;
+flex: 0 0 28px;
+}
+.dashboard-sidebar.collapsed .sidebar-link .label {
+display: none;
+}
+
+/* Hover background */
+.dashboard-sidebar .sidebar-link:hover {
+background-clip: padding-box;
+}
+
+/* Layers */
+.sidebar-toggle {
+z-index: 300;
+}
+.dashboard-sidebar.collapsed .sidebar-link::after {
+display: none;
+}
+.dashboard-sidebar.collapsed h2 {
+font-size: 0;
+}
+
+/* Title + Role hidden on collapse */
+.sidebar-title,
+.sidebar-role,
+.logout-label {
+transition: opacity .18s ease, transform .18s ease;
+opacity: 1;
+transform: translateX(0);
+}
+.dashboard-sidebar.collapsed .sidebar-title {
+opacity: 0;
+transform: translateX(-6px);
+pointer-events: none;
+}
+.dashboard-sidebar.collapsed .sidebar-role {
+opacity: 0;
+transform: translateX(-6px);
+pointer-events: none;
+}
+
+/* Logout */
+.logout-btn {
+display: flex;
+gap: 8px;
+align-items: center;
+justify-content: flex-start;
+transition: background-color 0.3s ease, color 0.3s ease;
+}
+.logout-label { font-size: 13px; }
+.logout-btn .logout-icon {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+}
+.logout-btn:hover {
+background-color: rgba(77,182,172,0.04);
+color: var(--wc-primary);
+}
+.dashboard-sidebar.collapsed .logout-label {
+display: none;
+}
+.dashboard-sidebar.collapsed .logout-btn {
+justify-content: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+.dashboard-root {
+flex-direction: column;
+}
+.dashboard-sidebar {
+width: 100%;
+border-right: none;
+border-bottom: 1px solid #eef3f3;
+}
+}
+
+/* MOBILE OVERLAY */
+.dashboard-overlay {
+position: fixed;
+inset: 0;
+background: rgba(0, 0, 0, 0.36);
+opacity: 0;
+pointer-events: none;
+transition: opacity .28s ease;
+z-index: 90;
+}
+.dashboard-overlay.show {
+opacity: 1;
+pointer-events: auto;
+}
+
+@media (max-width: 900px) {
+.dashboard-sidebar {
+transform-origin: left top;
+transition: transform .28s cubic-bezier(.2, .9, .3, 1), opacity .18s ease;
+position: fixed;
+top: 0;
+left: 0;
+height: 100vh;
+z-index: 100;
+box-shadow: 0 20px 60px rgba(12, 32, 55, 0.18);
+}
+.dashboard-sidebar.mobile-open {
+transform: scale(1) translateZ(0);
+opacity: 1;
+}
+.dashboard-sidebar:not(.mobile-open) {
+transform: scale(0.98) translateX(-6%) translateZ(0);
+opacity: 0;
+pointer-events: none;
+}
+.page-content {
+transform: translateY(0);
+}
+}
+
+/* BODY LOCK WHEN OPEN */
+.sidebar-open {
+overflow: hidden;
+height: 100vh;
+}

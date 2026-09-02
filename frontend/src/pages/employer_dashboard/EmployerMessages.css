@@ -1,0 +1,8 @@
+/* EmployerMessages overrides - reuse jobhunter Messages styles and add employer specific tweaks */
+@import url('../jobhunter_dashboard/JobSeekerMessages.css');
+
+/* Example override: slightly different card width for employer layout */
+
+/* If you want employer-specific color accents, set them here */
+.messages-card .panel-header { --employer-accent: rgba(94,123,255,0.08); }
+

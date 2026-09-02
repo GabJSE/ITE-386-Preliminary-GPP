@@ -1,0 +1,93 @@
+/* Employer profile styles */
+.employer-profile { padding: 24px; box-sizing: border-box; }
+.profile-header { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:18px; }
+.profile-title { display:flex; gap:12px; align-items:center; }
+.logo-placeholder { width:72px; height:72px; border-radius:12px; background:#f3f7f6; display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--wc-primary); font-size:18px }
+.company-name { margin:0; font-size:24px; }
+.company-meta { color:var(--wc-muted); margin-top:6px; }
+
+.profile-grid { display:grid; grid-template-columns: 360px 1fr; gap:20px; }
+.card { background:#fff; border:1px solid rgba(12,32,55,0.06); border-radius:8px; padding:16px; box-shadow: 0 6px 20px rgba(12,32,55,0.06); }
+
+/* employer-specific tweaks to better match brand colors and spacing */
+.profile-top { padding: 18px; background: #fff; border-radius: 10px; box-shadow: 0 6px 18px rgba(15,23,42,0.04); }
+.profile-top .profile-role { color: #374151; font-weight:600 }
+.profile-top .profile-avatar.large { border-radius: 12px; width:84px; height:84px; }
+.profile-top .profile-avatar.large img { border-radius:12px; object-fit:cover }
+.profile-top-right .edit-btn { min-width: 96px }
+.profile-side .card { background: #fff; }
+
+.info-list { margin:0; padding:0; }
+.info-list dt { font-weight:700; font-size:13px; color:var(--wc-neutral); margin-top:12px; }
+.info-list dd { margin:6px 0 0 0; color:var(--wc-muted); }
+
+.company-desc { color:#444; line-height:1.6 }
+.company-mission, .company-values { color:#444 }
+
+/* Chip/list tweaks to align with jobseeker layout */
+.list-input { display:flex; flex-direction:column; gap:8px }
+.chips { display:flex; flex-wrap:wrap; gap:6px }
+.chip { background: rgba(77,182,172,0.06); padding:6px 8px; border-radius:999px; display:inline-flex; align-items:center; gap:8px; font-size:13px }
+.chip-remove { background:transparent; border:none; margin-left:4px; cursor:pointer; font-weight:700; font-size:12px; line-height:1 }
+.add-row { display:flex; gap:8px; align-items:center }
+.add-row input { flex:1; padding:8px 10px; border-radius:8px; border:1px solid #e6e6e9 }
+.add-btn { background: var(--wc-primary); color:#fff; border:none; padding:6px 10px; border-radius:8px; cursor:pointer }
+
+.gallery { display:flex; gap:10px; margin-top:8px; flex-wrap:wrap }
+.gallery img { width:120px; height:80px; object-fit:cover; border-radius:6px; border:1px solid #eee }
+.gallery-empty { color:var(--wc-muted); padding:12px; border:1px dashed #eee; border-radius:6px }
+
+.reviews { color:var(--wc-muted); padding:12px; border-top:1px solid #f3f3f3; margin-top:12px }
+
+@media (max-width: 900px) {
+  .profile-grid { grid-template-columns: 1fr; }
+  .logo-placeholder { width:56px; height:56px }
+}
+
+/* Ensure modal and inline modal-content form labels match the main .form-row label styling */
+.wc-modal .form-row label,
+.modal-content .form-row label,
+.modal-overlay .form-row label {
+  display: block;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.wc-modal .form-row input,
+.modal-content .form-row input,
+.modal-overlay .form-row input,
+.wc-modal .form-row textarea,
+.modal-content .form-row textarea,
+.modal-overlay .form-row textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e6e6e9;
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* Actions row: left and right groups with responsive behavior */
+.actions-row { padding-top: 6px; padding-bottom: 6px }
+.actions-row .actions-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.actions-row .actions-left,
+.actions-row .actions-right {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+/* make left group wrap when needed */
+.actions-row .actions-left { flex-wrap: wrap }
+.actions-row .actions-right { white-space: nowrap }
+
+@media (max-width: 720px) {
+  .actions-row .actions-inner { flex-direction: column; align-items: stretch; }
+  .actions-row .actions-right { justify-content: flex-start; }
+  .actions-row .actions-left { justify-content: flex-start; }
+  .actions-row .actions-left button, .actions-row .actions-right button { width: 100%; }
+}

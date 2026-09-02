@@ -1,0 +1,254 @@
+/* Dashboard styles aligned with global app styles */
+
+.dashboard-container{
+  padding: 20px 24px;
+}
+
+.dashboard-header{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-bottom:18px;
+}
+
+.dashboard-grid{
+  display:grid;
+  gap:20px;
+  grid-template-columns: 360px 1fr;
+  align-items:start;
+}
+
+/* Responsive stack */
+@media (max-width:980px){
+  .dashboard-grid{ grid-template-columns: 1fr; }
+}
+
+.left-col{ display:flex; flex-direction:column; gap:16px; }
+.main-col{ display:flex; flex-direction:column; gap:16px; }
+
+/* Reuse .card conventions from global CSS; add small helpers here */
+.card{ background:var(--wc-bg,#fff); border-radius:10px; box-shadow:0 6px 18px rgba(12,32,55,0.06); padding:16px; border:1px solid rgba(12,32,55,0.04); }
+
+/* --- JOBHUNTER PROFILE SUMMARY CARD STYLES (MATCHING EMPLOYER) --- */
+.profile-summary-card {
+    text-align: center;
+    border: 1px solid var(--wc-border-color, rgba(12,32,55,0.1));
+}
+/* FIX: Ensure the wrapper is a block-level container */
+.jobhunter-avatar-wrapper {
+    display: block; 
+    justify-content: center;
+    margin-bottom: 12px;
+}
+/* FIX: Ensure the avatar element is centered and has proper size */
+.profile-summary-card .avatar {
+    background:#eef7f6; 
+    border-radius:50%; 
+    width:80px; 
+    height:80px; 
+    display:flex; 
+    align-items:center; 
+    justify-content:center; 
+    font-weight:700; 
+    color:var(--wc-primary,#0aa96f); 
+    font-size:32px; 
+    margin: 0 auto; /* Centered */
+}
+.jobhunter-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+}
+.jobhunter-profession {
+    color: var(--wc-muted, #6b7280);
+    font-size: 14px;
+    margin: 0 0 16px 0;
+}
+.contact-info {
+    border-top: 1px dashed rgba(12,32,55,0.04);
+    padding-top: 12px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: var(--wc-muted, #6b7280);
+}
+.contact-info p {
+    margin: 4px 0;
+}
+.completion-text {
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+}
+.completion-bar {
+    background: #e6e6e9; /* Light grey track */
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+.completion-progress {
+    background: var(--wc-primary, #0aa96f); /* Primary color fill */
+    height: 100%;
+    transition: width 0.3s ease-in-out;
+}
+.skills-and-resume {
+    /* FIX: Set a block display and text-align left for inner text */
+    border-top: 1px dashed rgba(12,32,55,0.04);
+    padding-top: 12px;
+    text-align: left;
+}
+.skills-and-resume .skills, .skills-and-resume .resume-upload {
+    margin-bottom: 12px;
+}
+.skills-and-resume .skills .skill-list{ margin-top:6px; color:var(--wc-muted,#6b7280); }
+/* FIX: Ensure resume-row uses flex to keep input and info inline */
+.skills-and-resume .resume-row{ 
+    display:flex; 
+    gap:12px; 
+    align-items:center; 
+    margin-top:8px; 
+    flex-wrap: wrap; /* Added for responsiveness */
+}
+.skills-and-resume .resume-info{ 
+    color:var(--wc-muted,#6b7280); 
+    font-size:13px; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; /* Prevents long filename from breaking layout */
+}
+/* --- END NEW PROFILE SUMMARY CARD STYLES --- */
+
+
+.notifications ul, .messages ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+.notifications li, .messages li{ display:flex; justify-content:space-between; gap:12px; align-items:center; padding:10px; border-radius:8px; background:var(--wc-bg,#fff); }
+.notifications li.unread, .messages li.unread{ box-shadow:0 6px 18px rgba(10,169,111,0.06); border:1px solid rgba(10,169,111,0.06); }
+
+.job-list{ display:flex; flex-direction:column; gap:12px; }
+
+/* Scrollable list for recommended jobs */
+.recommended .job-list {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 8px; /* Spacing for scrollbar */
+}
+
+.job-card{ 
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between; 
+  gap:12px; 
+  padding:12px; 
+  border-radius:8px; 
+  background:var(--wc-bg,#fff); 
+  border:1px solid rgba(12,32,55,0.04);
+}
+.job-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+.job-info {
+  flex-grow: 1; /* Allow job info to take up available space */
+}
+.job-info h3{ margin:0; font-size:16px; }
+.meta{ color:var(--wc-muted,#6b7280); font-size:13px; }
+
+/* --- LOGO FIX: New styles for job card logo --- */
+.job-card-logo {
+  width: 40px;
+  height: 40px;
+  min-width: 40px; /* Prevent shrinking */
+  border-radius: 8px;
+  overflow: hidden;
+  margin-right: 12px;
+  background-color: #eef7f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--wc-primary, #0aa96f);
+}
+.job-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.job-logo-initials {
+  font-size: 16px;
+  line-height: 1;
+}
+/* ----------------------------------------------- */
+
+
+.job-actions{ display:flex; gap:8px; }
+
+/* Consolidated Button Base Styles */
+.apply-btn, .save-btn, .edit-btn, .contact-btn{ cursor:pointer; height:38px; border-radius:8px; padding:8px 12px; font-weight:600; border:none; transition: transform 0.2s ease, background 0.3s ease; }
+
+/* Primary Button Styles (e.g., Apply) */
+.apply-btn{ background:var(--wc-primary,#0aa96f); color:#fff; }
+.apply-btn:hover{ transform:translateY(-1px); }
+
+/* Secondary Button Styles (e.g., View Details) */
+.apply-btn.secondary{ background:transparent; border:1px solid var(--wc-primary,#0aa96f); color:var(--wc-primary,#0aa96f); }
+.apply-btn.secondary:hover{ background:rgba(10,169,111,0.05); transform:translateY(-1px); }
+
+/* Other Button Styles */
+.save-btn{ background:transparent; border:1px solid rgba(55,71,79,0.06); color:var(--wc-neutral,#1f2937); }
+
+.applied-table{ width:100%; border-collapse:collapse; margin-top:8px; }
+.applied-table th, .applied-table td{ text-align:left; padding:10px 8px; border-bottom:1px solid rgba(12,32,55,0.04); }
+.status.pending{ color:#d97706; font-weight:700; }
+.status.accepted{ color:#059669; font-weight:700; }
+.status.rejected{ color:#ef4444; font-weight:700; }
+
+.analytics-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; margin-top:8px; }
+@media (max-width:720px){ .analytics-grid{ grid-template-columns: repeat(2,1fr); } }
+.metric{ background:var(--wc-bg,#fff); border-radius:8px; padding:12px; text-align:center; }
+.metric-value{ font-size:20px; font-weight:700; }
+.metric-label{ color:var(--wc-muted,#6b7280); font-size:13px; }
+
+.settings-help{ display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+@media (max-width:720px){ .settings-help{ grid-template-columns: 1fr; } }
+
+/* small tweaks */
+.left-col .card, .main-col .card{ overflow:visible; }
+
+/* ensure inputs look consistent */
+input[type="file"]{ font-size:13px; }
+
+/* Saved Job List Item Styles */
+.saved ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(12,32,55,0.04);
+}
+.saved ul li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Remove button refined for consistency */
+.remove-btn {
+  background: transparent;
+  border: 1px solid var(--wc-primary, #0aa96f);
+  color: var(--wc-primary, #0aa96f);
+  padding: 6px 12px;
+  margin-left: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  height: 38px;
+}
+
+.remove-btn:hover {
+  background-color: rgba(10,169,111,0.05);
+  transform: scale(1.01);
+}
+
+.remove-btn:active {
+  transform: scale(0.99);
+}

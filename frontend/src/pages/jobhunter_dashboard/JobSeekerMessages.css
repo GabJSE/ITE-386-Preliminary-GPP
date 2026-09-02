@@ -1,0 +1,476 @@
+.messages-root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow: visible !important;
+}
+
+.messages-card,
+.panel-left,
+.panel-body,
+.messages-convos,
+.messages-convo {
+  overflow: visible !important;
+}
+
+
+.messages-card {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  transition: grid-template-columns 180ms ease, all 120ms ease;
+  gap: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(12, 32, 55, 0.08);
+  padding: 0;
+  border: 1px solid rgba(12, 32, 55, 0.06);
+  overflow: visible;
+}
+
+/* Sidebar and Layout */
+.messages-list {
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+.messages-list .panel-body {
+  overflow: visible;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding-bottom: 120px;
+}
+.messages-list .panel-body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Panels */
+.panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.panel-header {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(12, 32, 55, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.panel-title {
+  font-weight: 700;
+  color: var(--wc-neutral);
+}
+.panel-body {
+  padding: 14px 16px;
+  overflow: auto;
+  min-height: 0;
+}
+.panel-left {
+  background: #fff;
+  border-right: 1px solid rgba(12, 32, 55, 0.04);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.panel-right {
+  background: #fff;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+.panel-body-right {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Takes up all vertical space in the panel */
+  min-height: 0;
+  overflow: hidden;
+  position: relative; /* Acts as the positioning context for its children */
+}
+/* Filters + Search */
+.messages-search input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(55, 71, 79, 0.06);
+}
+.messages-filters {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+.filter-btn {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(55, 71, 79, 0.06);
+  background: transparent;
+  cursor: pointer;
+}
+.filter-btn.active {
+  background: rgba(77, 182, 172, 0.08);
+  border-color: transparent;
+}
+
+/* Conversations list */
+.messages-convos {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+}
+.messages-convo {
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  transition: background 0.15s;
+  position: relative;
+  overflow: visible; /* dropdown not clipped */
+}
+.messages-convo.active {
+  background: linear-gradient(
+    90deg,
+    rgba(77, 182, 172, 0.12),
+    rgba(77, 182, 172, 0.03)
+  );
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Avatar + Body */
+.convo-left .avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(
+    180deg,
+    rgba(77, 182, 172, 0.18),
+    rgba(77, 182, 172, 0.08)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--wc-primary);
+}
+.convo-body {
+  flex: 1;
+  min-width: 0;
+}
+.convo-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.convo-title {
+  font-weight: 700;
+  color: var(--wc-neutral);
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.convo-time {
+  font-size: 12px;
+  color: var(--wc-muted);
+}
+.convo-last {
+  color: var(--wc-muted);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* 3-dot icon and dropdown */
+.convo-actions {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+.three-dot-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--wc-muted);
+  border-radius: 6px;
+  transition: color 0.1s;
+}
+.three-dot-btn:hover {
+  color: var(--wc-neutral);
+  background: rgba(12, 32, 55, 0.02);
+}
+.convo-menu {
+  position: absolute;
+  right: 0;
+  top: 36px;
+  background: #fff;
+  border: 1px solid rgba(12, 32, 55, 0.06);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(12, 32, 55, 0.08);
+  min-width: 140px;
+  z-index: 9999; /* ensures dropdown appears on top */
+}
+.convo-menu button {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  text-align: left;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+}
+.convo-menu button:hover {
+  background: rgba(12, 32, 55, 0.03);
+}
+
+/* Thread */
+.messages-thread {
+  background: transparent;
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+.messages-empty {
+  color: var(--wc-muted);
+  padding: 40px;
+  text-align: center;
+  min-height: 500px;
+}
+.thread-body {
+  flex: 1; /* This tells it to grow and fill all available space */
+  overflow-y: auto;           /* This makes IT scroll, not the parent */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: transparent;
+  min-height: 0; /* Important for flex-shrink */
+  box-sizing: border-box;
+  /* The max-height property has been REMOVED */
+  min-height: 520px;
+}
+.thread-msg {
+  max-width: 70%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(12, 32, 55, 0.06);
+}
+.thread-msg.them {
+  align-self: flex-start;
+  background: linear-gradient(180deg, #ffffff, #f6f8fb);
+}
+.thread-msg.me {
+  align-self: flex-end;
+  background: linear-gradient(
+    180deg,
+    rgba(77, 182, 172, 0.14),
+    rgba(77, 182, 172, 0.08)
+  );
+  color: var(--wc-neutral);
+}
+.msg-body {
+  font-size: 14px;
+  color: var(--wc-neutral);
+}
+.msg-meta {
+  font-size: 11px;
+  color: var(--wc-muted);
+  margin-top: 6px;
+  text-align: right;
+}
+.avatar-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+/* Input Area */
+.thread-input {
+  flex-shrink: 0; /* Ensures the input area maintains its height */
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid rgba(12, 32, 55, 0.06);
+  background: #fff;
+  z-index: 10;
+}
+.thread-input input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(55, 71, 79, 0.06);
+  background: #fff;
+}
+.send-btn {
+  background: var(--wc-primary);
+  color: #fff;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Sidebar collapse handling */
+.sidebar-collapsed .messages-card {
+  grid-template-columns: 0 1fr;
+}
+.sidebar-collapsed .messages-card .panel-left,
+.sidebar-collapsed .messages-list {
+  display: none;
+}
+.sidebar-collapsed .messages-thread {
+  padding-left: 0;
+}
+.sidebar-collapsed .messages-root {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+/* Company logo styling for conversation list */
+.messages-convo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden; /* prevent image overflow */
+}
+
+.convo-left {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: #f4f4f4;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.convo-left .avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill; /* scales image to fit even if distorted */
+  border-radius: 50%;
+}
+
+.convo-body {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+.panel-body-right {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.panel-body-content {
+  flex: 1;                 /* takes all vertical space */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;           /* ensures proper shrinking */
+}
+
+.panel-footer {
+  flex-shrink: 0;          /* never shrink */
+  border-top: 1px solid rgba(12, 32, 55, 0.06);
+  background: #fff;
+  padding: 8px 16px;
+}
+
+.thread-input {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.messages-thread {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ADD THESE NEW RULES */
+
+/* This handles the wrapper in EmployerMessages.js */
+.panel-footer {
+  flex-shrink: 0;
+}
+
+.thread-input {
+  flex-shrink: 0; /* This prevents the input from shrinking */
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background: #fff;
+}
+
+.thread-input input {
+  flex: 1; /* Make the text input grow */
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.thread-input input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+.thread-input .send-btn {
+  flex-shrink: 0;
+  font-family: 'Segoe UI Symbol', sans-serif;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  padding-left: 3px; /* Center the '➤' icon */
+  border-radius: 50%;
+  border: none;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 150ms ease;
+}
+
+.thread-input .send-btn:hover {
+  background: #0056b3;
+}

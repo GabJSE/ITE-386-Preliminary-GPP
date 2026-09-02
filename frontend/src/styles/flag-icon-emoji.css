@@ -1,0 +1,17 @@
+/* Minimal local flag-icon replacement using emoji fallback.
+   Defines .flag-icon and a few .flag-icon-<iso> classes used by CountrySelect.
+   This avoids an external dependency while providing consistent flags.
+*/
+.flag-icon { display: inline-block; width: 20px; height: 14px; font-size: 14px; line-height: 14px; }
+.flag-icon::before { display: inline-block; }
+.flag-icon-ph::before { content: "🇵🇭"; }
+.flag-icon-us::before { content: "🇺🇸"; }
+.flag-icon-gb::before { content: "🇬🇧"; }
+.flag-icon-au::before { content: "🇦🇺"; }
+.flag-icon-in::before { content: "🇮🇳"; }
+.flag-icon-de::before { content: "🇩🇪"; }
+.flag-icon-fr::before { content: "🇫🇷"; }
+.flag-icon-es::before { content: "🇪🇸"; }
+.flag-icon-it::before { content: "🇮🇹"; }
+.flag-icon-jp::before { content: "🇯🇵"; }
+.flag-icon-cn::before { content: "🇨🇳"; }

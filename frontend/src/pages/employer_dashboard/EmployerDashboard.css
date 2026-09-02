@@ -1,0 +1,284 @@
+/* css file for EmployerDashboard.js */
+
+.dashboard-container {
+  padding: 32px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.main-content {
+  display: flex;
+  gap: 24px;
+}
+
+.left-panel {
+  flex: 3; /* Allocate more space for the main stats/applications */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.right-panel {
+  flex: 1; /* Smaller panel for profile and quick actions */
+  min-width: 280px;
+  max-width: 320px; /* Cap the width of the right panel */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.heading {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.subheading {
+  font-size: 16px;
+  color: #555;
+  margin-top: 4px;
+}
+
+.stats-grid {
+  display: grid;
+  /* FIX: Changed from repeat(5, 1fr) to repeat(4, 1fr) */
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 24px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 120px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.bold-text {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin-top: 4px;
+}
+
+.card .light-text {
+  color: #666;
+  font-size: 14px;
+  margin-top: 8px;
+}
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+}
+.card ul li {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+/* Recent Applications Section */
+.recent-applications-section {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.pending-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.list-header {
+  display: grid;
+  /* FIX: Removed the last 80px column for the "Action" button, which was commented out in JSX */
+  grid-template-columns: 2fr 2fr 1fr 1fr; 
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  font-weight: 600;
+  color: #4b5563;
+  font-size: 13px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.pending-item {
+  display: grid;
+  /* FIX: Removed the last 80px column for the "Action" button, which was commented out in JSX */
+  grid-template-columns: 2fr 2fr 1fr 1fr; /* Name/Role | Job Title | Date | Status */
+  align-items: center;
+  gap: 12px;
+  background-color: #f9fafb;
+  padding: 12px 16px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+.pending-item:hover {
+  background-color: #f0f4f7;
+}
+
+.app-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-name {
+  font-weight: 600;
+  color: #333;
+}
+.app-role {
+  color: #666;
+  font-size: 13px;
+}
+
+.job-title-text {
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.date-text, .status-text {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.status-Pending {
+  background-color: #fef3c7; /* Yellow */
+  color: #b45309;
+}
+.status-Hired, .status-Accepted {
+  background-color: #d1fae5; /* Green */
+  color: #065f46;
+}
+.status-Rejected {
+  background-color: #fee2e2; /* Red */
+  color: #991b1b;
+}
+.status-Interview, .status-Shortlist {
+  background-color: #e0f2f1; /* Teal/Cyan */
+  color: #0d9488;
+}
+
+.view-link {
+  color: #3b82f6; /* Blue action color */
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+.view-link:hover {
+  text-decoration: underline;
+}
+
+/* Quick Actions Section */
+.quick-actions-card a {
+  display: block;
+  padding: 12px 16px;
+  background-color: #eff6ff; /* Light blue background */
+  color: #1d4ed8;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.2s;
+}
+.quick-actions-card a:hover {
+  background-color: #dbeafe;
+}
+
+/* Employer Profile Summary Section */
+.profile-summary-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+.company-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-size: 32px;
+  color: #6b7280;
+  font-weight: 700;
+}
+.company-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.company-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-top: 4px;
+}
+.contact-info {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 8px;
+}
+.completion-bar {
+  width: 100%;
+  background-color: #e5e7eb;
+  border-radius: 10px;
+  height: 10px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+.completion-progress {
+  height: 100%;
+  background-color: #10b981; /* Green progress color */
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+}
+.completion-text {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
