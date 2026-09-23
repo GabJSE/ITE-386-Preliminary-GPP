@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const crypto = require('crypto');
 const dns = require('dns').promises;
 const mongoose = require('mongoose');
 const sendEmail = require('../utils/sendEmail'); // <-- use your Gmail-based email sender
@@ -23,10 +22,19 @@ function generateCode() {
   return Math.floor(100000 + Math.random() * 900000).toString();
 }
 
+function normalizeContact(contact) {
+  return String(contact || '').trim().toLowerCase();
+}
+
+function normalizeCode(code) {
+  return String(code || '').trim();
+}
+
 // POST /api/verify/send  -> sends OTP
 router.post('/send', async (req, res) => {
   try {
-    const { contact, method } = req.body;
+    const { method } = req.body;
+    const contact = normalizeContact(req.body.contact);
     if (!contact || !method) {
       return res.status(400).json({ error: 'contact and method required' });
     }
@@ -88,20 +96,32 @@ router.post('/send', async (req, res) => {
 // POST /api/verify/verify  -> verifies OTP
 router.post('/verify', async (req, res) => {
   try {
-    const { contact, code } = req.body;
+    const contact = normalizeContact(req.body.contact);
+    const code = normalizeCode(req.body.code);
     if (!contact || !code) {
       return res.status(400).json({ error: 'contact and code required' });
     }
 
-    // If DB not connected, use memory
-    if (!isDbConnected()) {
-      const rec = inMemory.get(contact);
-      if (!rec) return res.status(400).json({ valid: false });
-      if (new Date() > rec.expiresAt) return res.status(400).json({ valid: false, error: 'expired' });
-      if (rec.code !== code) return res.status(400).json({ valid: false });
+    // Check memory first so codes sent while MongoDB was unavailable remain valid
+    // if the connection becomes available before the user submits the code.
+    const memoryRecord = inMemory.get(contact);
+    if (memoryRecord) {
+      if (new Date() > memoryRecord.expiresAt) {
+        inMemory.delete(contact);
+        return res.status(400).json({ valid: false, error: 'expired' });
+      }
+      if (memoryRecord.code !== code) {
+        return res.status(400).json({ valid: false });
+      }
 
       inMemory.delete(contact);
       return res.json({ valid: true });
+    }
+
+    // If DB is not connected and there was no in-memory record, the code cannot
+    // be verified.
+    if (!isDbConnected()) {
+      return res.status(400).json({ valid: false });
     }
 
     // Verify in MongoDB
