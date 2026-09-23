@@ -361,7 +361,7 @@ const handleDeleteConvo = async (id) => {
                           src={
                             c.otherLogo?.startsWith('http')
                               ? c.otherLogo
-                              : `http://localhost:5000/${c.otherLogo.replace(/^\/+/, '')}`
+                              : `/${c.otherLogo.replace(/^\/+/, '')}`
                           }
                           alt="profile"
                           className="avatar-img" /* Added class for styling */

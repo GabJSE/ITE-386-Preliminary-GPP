@@ -9,7 +9,7 @@ export function initSocket(userId) {
   // If already connected, just return it
   if (socket && socket.connected) return socket;
 
-  socket = io("http://localhost:5000", {
+  socket = io("/", {
     transports: ["websocket"],
     reconnectionAttempts: 3,
     reconnectionDelay: 1000,

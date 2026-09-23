@@ -63,7 +63,7 @@ export default function JobseekerNotification() {
 
   // 🔹 Realtime updates: notifications + deleted chat alert
   useEffect(() => {
-    const socket = io(process.env.REACT_APP_API_URL || 'http://localhost:5000');
+    const socket = io("/");
 
     socket.emit('register', userId); // join userId room
 

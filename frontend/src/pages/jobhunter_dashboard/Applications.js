@@ -38,8 +38,8 @@ export default function Applications() {
     try {
       const token = localStorage.getItem('token');
       // use the same API host used by fetchApplications to avoid mixed relative/absolute issues in dev
-      const apiBase = (window.__API_BASE__ || 'http://localhost:5000').replace(/\/$/, '');
-      const res = await fetch(`${apiBase}/api/applications/${encodeURIComponent(id)}`, {
+      const apiBase = (window.__API_BASE__ || '/api').replace(/\/$/, '');
+      const res = await fetch(`${apiBase}/applications/${encodeURIComponent(id)}`, {
         method: 'DELETE',
         headers: {
           Authorization: token ? `Bearer ${token}` : '',
@@ -85,7 +85,7 @@ export default function Applications() {
           return;
         }
 
-        const res = await fetch(`http://localhost:5000/api/applications/applicant/${userId}`, {
+        const res = await fetch(`/api/applications/applicant/${userId}`, {
           headers: {
             Authorization: token ? `Bearer ${token}` : '',
           },
