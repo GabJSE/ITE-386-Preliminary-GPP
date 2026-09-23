@@ -37,6 +37,11 @@
   grid-template-columns: 1fr 1fr;
   gap: 28px;
 }
+.admin-login-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
 .role-card {
   background: var(--wc-bg);
   border: 1px solid rgba(55,71,79,0.06);

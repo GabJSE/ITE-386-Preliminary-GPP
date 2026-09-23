@@ -51,6 +51,16 @@ export default function ChooseRole() {
             >Continue as Employer</button>
           </div>
         </div>
+
+        <div className="admin-login-action">
+          <button
+            type="button"
+            className="card-btn"
+            onClick={() => navigate("/login")}
+          >
+            Admin Login
+          </button>
+        </div>
       </div>
     </div>
   );
