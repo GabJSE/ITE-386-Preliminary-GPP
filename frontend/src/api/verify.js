@@ -1,5 +1,5 @@
 export async function sendCode(contact, method = 'email') {
-  const res = await fetch(`${process.env.REACT_APP_API_URL}/api/verify/send`, {
+  const res = await fetch(`/api/verify/send`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ contact, method }),
